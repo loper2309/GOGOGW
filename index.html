@@ -18,9 +18,15 @@
 
 
     <!--Add buttons to initiate auth sequence and sign out-->
+    <div class="form-header">
+      <h1 id="heading">Make your reservation</h1>
+  </div>
     <form name="form1">
-     <input type="text" name="cinDate" id="checkin">Check-In Date</input> 
-     <input type="text" name="coutDate" id="checkout">Check-Out Date</input> 
+      <h3 id="c_head">Check in Date</h3>
+     <input type="date" name="cinDate" id="checkin"></input> 
+     <h3 id="co_head">Check-Out Date</h3>
+
+     <input type="date" name="coutDate" id="checkout"></input> 
     
   </form>
   <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>

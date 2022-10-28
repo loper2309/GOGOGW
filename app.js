@@ -24,6 +24,9 @@ document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
 document.getElementById('execute').style.visibility = 'hidden';
 document.getElementById('checkin').style.visibility = 'hidden';
+document.getElementById('c_head').style.visibility = 'hidden';
+document.getElementById('co_head').style.visibility = 'hidden';
+
 document.getElementById('checkout').style.visibility = 'hidden';
 
 
@@ -80,6 +83,8 @@ function handleAuthClick() {
     }
     document.getElementById('checkin').style.visibility = 'visible';
     document.getElementById('checkout').style.visibility = 'visible';
+    document.getElementById('c_head').style.visibility = 'visible';
+    document.getElementById('co_head').style.visibility = 'visible';
 
     document.getElementById('signout_button').style.visibility = 'visible';
      document.getElementById('execute').style.visibility = 'visible';
@@ -131,10 +136,10 @@ return gapi.client.calendar.events.insert({
 "supportsAttachments": false,
 "resource": {
   "end": {
-    "date":date_cout
+    "date":`${date_cout}`
   },
   "start": {
-    "date":date_cin
+    "date":`${date_cin}`
   }
  
 }
