@@ -1,0 +1,90 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
+     <link href='' rel='stylesheet'> 
+    <link rel="stylesheet" href="./style.css">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+    <script type='text/javascript'>
+        
+    </script> 
+    <script src="./app.js"></script>
+     <title>Document</title>
+ </head>    
+ <body>
+     
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1 id="heading">Make your reservation</h1>
+                    </div>
+                    <form id="form1">
+                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="endDate" name="cinDate" class="form-control" type="date" required>
+                                    <span class="form-label">Check In</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input name="coutDate" class="form-control" type="date" required>
+                                    <span class="form-label">Check out</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            
+                            
+                        </div>
+                       
+                        <div class="form-btn">
+                            <!-- <button class="bg-orange-300 px-3 py-1 text-white mx-auto" type="submit" id="submit">Submit</button> -->
+                            <button class="submit-btn" id="submit" onclick="execute()">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<script>
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkDZBUwtEGVPR4ChGME6kyiB4neYoVTTtIl7sytgaslo8DC3GLimEzi8IUgENAYi92/exec'
+    const form = document.querySelector('#form')
+    const btn = document.querySelector('#submit')
+
+    
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      btn.disabled = true
+      btn.innerHTML = "Booking..."
+
+      console.log(form)
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => { 
+              btn.disabled = false
+      btn.innerHTML = "Booked"
+            alert('Success!', response) })
+        .catch(error => {
+                     btn.disabled = false
+      btn.innerHTML = "Booked"
+            alert('Error!', error.message)})
+    })
+</script>
+<!-- <script src="app.js"></script> -->
+ </body>
+ </html>
+
