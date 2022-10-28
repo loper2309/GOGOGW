@@ -23,9 +23,13 @@ let gisInited = false;
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
 document.getElementById('execute').style.visibility = 'hidden';
+document.getElementById('Guest').style.visibility = 'hidden';
+document.getElementById('Guestbox').style.visibility = 'hidden';
+
 document.getElementById('checkin').style.visibility = 'hidden';
 document.getElementById('c_head').style.visibility = 'hidden';
 document.getElementById('co_head').style.visibility = 'hidden';
+document.getElementById('cal').style.visibility='hidden';
 
 document.getElementById('checkout').style.visibility = 'hidden';
 
@@ -85,6 +89,9 @@ function handleAuthClick() {
     document.getElementById('checkout').style.visibility = 'visible';
     document.getElementById('c_head').style.visibility = 'visible';
     document.getElementById('co_head').style.visibility = 'visible';
+    document.getElementById('Guest').style.visibility = 'visible';
+    document.getElementById('Guestbox').style.visibility = 'visible';
+    document.getElementById('cal').style.visibility='visible';
 
     document.getElementById('signout_button').style.visibility = 'visible';
      document.getElementById('execute').style.visibility = 'visible';
@@ -125,6 +132,8 @@ function execute() {
 
    let date_cout = document.forms["form1"]["coutDate"].value;
    let date_cin = document.forms["form1"]["cinDate"].value;
+   let g_name = document.forms["form1"]["gname"].value;
+
    let debug =  "\""+date_cin+"\""
    alert(debug)
 return gapi.client.calendar.events.insert({
@@ -140,7 +149,10 @@ return gapi.client.calendar.events.insert({
   },
   "start": {
     "date":`${date_cin}`
-  }
+  },
+    "description": `${g_name}`,
+    "summary": `${g_name}`
+  
  
 }
 

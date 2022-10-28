@@ -19,17 +19,20 @@
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <div class="form-header">
-      <h1 id="heading">Make your reservation</h1>
+    <center>  <h1 id="heading">Hotel Administrator</h1></center>
   </div>
     <form name="form1">
-      <h3 id="c_head">Check in Date</h3>
+     <h3 id="Guest">Full Name</h3>
+     <input type="text" name="gname" id="Guestbox"></input> 
+     <h3 id="c_head">Check in Date</h3>
      <input type="date" name="cinDate" id="checkin"></input> 
      <h3 id="co_head">Check-Out Date</h3>
-
      <input type="date" name="coutDate" id="checkout"></input> 
     
   </form>
-  <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+  <iframe  id="cal" src="https://calendar.google.com/calendar/embed?src=loper2309%40gmail.com&ctz=Asia%2FKolkata" style="margin-left: 800px; "border: 0"  width="600" height="600" frameborder="0" scrolling="no"></iframe>
+
+    <button id="authorize_button" onclick="handleAuthClick()"><img style="width: 30px;" src="./g.png">Sign In</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <button id="execute"  onclick="execute()">execute</button>
 
